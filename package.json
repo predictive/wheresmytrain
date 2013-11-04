@@ -1,0 +1,9 @@
+{
+   "name": "wheresmytrain",
+   "description": "The wheresmytrain.net site engine",
+   "version": "0.0.1",
+   "dependencies": {
+      "express": "3.x",
+      "mongodb": "1.x"
+   }
+}
