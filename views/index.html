@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/train.css" rel="stylesheet">
         <link rel="apple-touch-icon" href="train57.png"/>
         <link rel="apple-touch-icon" sizes="72x72" href="train72.png"/>
         <link rel="apple-touch-icon" sizes="114x114" href="train114.png"/>
@@ -9,7 +11,37 @@
     </head>
 
     <body>
-        <h1>Where's My Train?</h1>
+        <div class="container">
+            <div class="row col-centered">
+                <span class="pull-left"><img class-"img-responsive" src="img/train96.png"></span>
+                <h1>Where's My Train?</h1>
+            </div>
 
+            <div class="row col-centered" id="current_location">
+                <h4>Current Location:</h4>
+                <h3>Plaza Saltillo</h3>
+            </div>
+
+            <div class="row col-centered" id="next_northbound">
+                <h3>
+                    <span class="glyphicon glyphicon-arrow-up pull-left"><span>
+                    <span class="align-left">Next Northbound:</span>
+                    <span class="label label-info">5 Minutes</span>
+                </h3>
+            </div>
+
+            <div class="row col-centered" id="next_northbound">
+                <h3>
+                    <span class="glyphicon glyphicon-arrow-down pull-left"><span>
+                    <span class="align-left">Next Southbound:</span>
+                    <span class="label label-danger">1 Minute</span>
+                </h3>
+            </div>
+
+        </div>
+
+
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

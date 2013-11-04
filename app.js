@@ -15,4 +15,9 @@ app.get('/apple-touch-icon.png', function(req, res) {
 });
 
 
+app.use("/img", express.static(__dirname + '/include/img'));
+app.use("/css", express.static(__dirname + '/include/css'));
+app.use("/js", express.static(__dirname + '/include/js'));
+app.use("/fonts", express.static(__dirname + '/include/fonts'));
+
 app.listen(8888);
