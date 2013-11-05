@@ -18,11 +18,13 @@
             </div>
 
             <div class="row col-centered" id="current_location">
-                <h4>Current Location:</h4>
-                <h3>Plaza Saltillo Station</h3>
+                <h4>Nearest Station:</h4>
+                <h3 id="nearest_station">Locating...</h3>
             </div>
 
-            <div class="row col-centered" id="next_northbound">
+            Sup James.
+
+<!--             <div class="row col-centered" id="next_northbound">
                 <h3>
                     <span class="glyphicon glyphicon-arrow-up pull-left"><span>
                     <span class="align-left">Next Northbound:</span>
@@ -36,7 +38,7 @@
                     <span class="align-left">Next Southbound:</span>
                     <span class="label label-danger">1 Minute</span>
                 </h3>
-            </div>
+            </div> -->
 
         </div>
 
@@ -44,4 +46,30 @@
         <script src="js/jquery-1.10.2.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </body>
+
+<script type="text/javascript">
+    window.onload = function(){
+        if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(handleGetCurrentPosition);
+        }
+
+        function handleGetCurrentPosition(location){
+            var position = {"location": {"lon": location.coords.longitude, "lat": location.coords.latitude}};
+            var positionPostData = JSON.stringify(position);
+
+            $.ajax({
+                url: "http://localhost:8888/nearest-station",
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(position)
+            })
+            .done(function(data) {
+                responseData = JSON.parse(data);
+                $('#nearest_station').text(responseData.nearest);
+            });
+
+        }
+    }
+</script>
+
 </html>
